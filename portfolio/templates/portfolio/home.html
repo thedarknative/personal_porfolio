@@ -1,0 +1,49 @@
+{% extends "portfolio/base.html" %} {% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- portfolio -->
+
+
+
+
+        <div class="col align-items-center py-4">
+            <h1 class="text-danger  text-center py-5 ">Ekezie's Portfolio</h1>
+
+            {% load static %}
+            <!-- <a href="{% url 'blog:all_blog' %}">Blog</a> -->
+            <!--  <br> -->
+            <!-- <a href="{% static 'portfolio/utme.pdf' %}">Resume</a> -->
+            <!-- <br> -->
+            <img src="{% static 'portfolio/34.jpg' %}" class=" mx-auto rounded d-block py-1 px-1 bg-light" height="600px" width="400px">
+            <!-- end of portfolio -->
+        </div>
+    </div>
+</div>
+
+<!-- project -->
+<div class="row card-deck ">
+    {% for project in projects %}
+
+    <div class="col-sm-3 ">
+        <div class="card bg-secondary text-white" style="width: 18rem;">
+
+            <class class="card-body">
+                <img class="card-img-top img-fluid" src="{{ project.image.url }}" alt="Card image cap">
+
+                <h5 class="card-title ">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description|truncatechars:100 }}</p>
+                {% if project.url %}
+                <a href="{{ project.url }}" class="btn btn-primary">Link</a> {% endif %}
+            </class>
+
+        </div>
+    </div>
+    <!-- end of project -->
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}
