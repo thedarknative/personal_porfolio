@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Blog
-# Create your views here.so we can go home
+# Create your views here.so we can 
 def all_blog(request):
     blogs = Blog.objects.order_by("-date")
     return render(request, "blog/all_blog.html", {"blogs":blogs})
